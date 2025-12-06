@@ -639,4 +639,63 @@ To reach Zetta-scale performance, we must solve challenges at each level:
 
 ---
 
+## 📘 Introduction to FinFETs
 
+As transistor dimensions scaled down into the nanometer regime, traditional planar MOSFETs began to suffer from performance degradation, increased leakage, and loss of electrostatic control. To overcome these challenges, industry shifted toward advanced multigate transistor architectures such as **FinFETs** and **Gate-All-Around (GAA)** devices.
+The images below illustrate this evolution, explain why FinFETs are necessary, and show their impact on circuit performance.
+
+### 🔹 1. Transistor Evolution: From Planar to FinFET to Gate-All-Around
+The first image highlights the progression of transistor architectures:
+
+#### Planar MOSFET
+- Gate sits on top of a flat silicon channel.
+- Limited gate control as channel becomes thinner.
+- Suffered from short-channel effects at advanced nodes (<40nm).
+
+#### FinFET (Tri-Gate) — Introduced around 2011
+- Silicon channel shaped like a vertical fin.
+- Gate wraps around **three sides** of the fin.
+- Provides much stronger electrostatic control over the channel.
+- Reduces leakage and improves switching speed.
+
+#### Gate-All-Around (GAAFET) — Expected around 2025
+- Uses stacked nanosheets or nanowires.
+- Gate completely surrounds the channel from all sides.
+- Allows higher drive current in a smaller footprint.
+- Considered the successor to FinFETs for sub-3nm nodes.
+
+This architectural evolution allows more drive current per device footprint, enabling both performance and density scaling.
+
+
+### 🔹 2. Why FinFETs? Improved Gate Control & Reduced Leakage
+The second image explains the motivation for FinFET and GAA technologies.
+#### Planar MOSFET Issues
+- Weak gate control over the channel.
+- Significant **sub-channel leakage**, especially at short channel lengths.
+- Poor scalability beyond 32nm.
+#### FinFET Improvements
+- Gate wraps around the fin, improving control.
+- Reduced subthreshold leakage.
+- Better short-channel behavior.
+#### Gate-All-Around Advantages
+- Gate surrounds the channel fully, maximizing control.
+- Reduced drain-induced effects.
+- Lower subthreshold slope (S.S.), improving low-power operation.
+A comparison plot shows how FinFETs achieve a steeper subthreshold slope and lower leakage versus planar devices.
+
+### 🔹 3. Impact on Circuit Performance
+The third image demonstrates how FinFETs improve circuit-level characteristics.
+#### Lower Off-Current
+- FinFETs reduce leakage current dramatically.
+- Lower static power consumption.
+#### Higher Drive Current
+- At the same gate voltage, FinFETs achieve higher on-current than planar MOSFETs.
+- This leads to faster switching and better performance.
+#### Overall Performance Benefits
+- Higher Ion / Ioff ratio
+- Improved switching speed
+- Reduced leakage power
+- Better scalability for advanced nodes
+These characteristics are why FinFETs became the industry standard from 22nm down to 5nm, and why GAA devices will drive technology below 3nm.
+
+---
