@@ -646,7 +646,9 @@ The images below illustrate this evolution, explain why FinFETs are necessary, a
 
 ### 🔹 1. Transistor Evolution: From Planar to FinFET to Gate-All-Around
 The first image highlights the progression of transistor architectures:
-<img src="CMOS:FinFET_Devices_and_Innovations/Transistor_Evolution.jpg" width="500" />
+
+<img src="CMOS:FinFET/Transistor_Evolution.jpg" width="500" />
+
 #### Planar MOSFET
 - Gate sits on top of a flat silicon channel.
 - Limited gate control as channel becomes thinner.
