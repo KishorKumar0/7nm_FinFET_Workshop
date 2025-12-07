@@ -803,3 +803,225 @@ As the technology node shrinks:
 - **CPP decreases** → cell becomes narrower
 - **Fin count decreases** → cell becomes shorter
 - Both lead to **significant area reduction**
+
+
+### 2. Standard Cell Area Scaling: SDB, COAG, and Back-Side PDN
+ 
+#### 2.1 DDB → SDB (Double → Single Diffusion Break)
+**What DDB and SDB mean**
+- **DDB (Double Diffusion Break):** Requires two large isolation regions between PMOS and NMOS active areas.
+- **SDB (Single Diffusion Break):** Uses only one isolation region.
+**Why it matters**
+- Diffusion breaks consume horizontal area in a standard cell.
+- Switching from DDB → SDB:
+  - Cuts isolation spacing by almost **1/2**
+  - Reduces **cell width**
+  - Improves **density** without impacting leakage/isolation integrity
+**Image explanation**
+- The left image shows wide blue isolation areas (DDB).
+- The middle image shows a narrow blue region (SDB).
+- Real cross-section images show:
+  - DDB needs two STI isolation trenches
+  - SDB needs only one → less space wasted
+
+#### 2.2 COFG → COAG (Contact Over Field → Contact Over Active)
+**What it means**
+- **COFG:** contacts are placed over field oxide (non-active region)
+- **COAG:** contacts are placed directly over the gate (active region)
+**Why COAG is important**
+- Moving contacts over the gate frees routing and enables **y-direction scaling**.
+- Reduces standard-cell height (tracks).
+- Improves transistor density without shrinking fin pitch.
+**Image explanation**
+- COFG has the contact sitting away from the gate.
+- COAG places it directly over the gate (green squares).
+- This reduces the **vertical spacing requirement** inside the cell.
+#### 2.3 Back-Side Power Delivery Network (BS-PDN)
+**What BS-PDN solves**
+Traditional front-side power rails consume valuable metal tracks inside the standard cell.
+As routing becomes congested at 5 nm and below, this becomes a performance bottleneck.
+**Back-Side PDN solution**
+- Power rails are moved to the **backside of the wafer** using TSVs or PowerVia structures.
+- Front-side metal layers become free for:
+  - Signal routing
+  - Local interconnect
+  - Higher density standard cells
+**Benefits**
+- Up to **20–30%** routing improvement
+- Reduced **IR-drop** (lower resistance path)
+- Enables future sub-3 nm scaling
+
+#### 3. Variability Evolution
+**Threshold-voltage variability** changes from planar to FinFET to Gate-All-Around (Nanowire/Nanosheet) devices.
+
+**3.1 Why variability increases at small nodes**
+Variability comes from:
+•	Random dopant fluctuations
+•	Line-edge roughness
+•	Fin height/width variation
+•	Gate-oxide thickness variation
+As gate length and fin dimensions shrink, these effects worsen.
+
+**3.2 Observed Trends**
+**Planar Technology (130 nm → 65 nm)**
+•	Variability increases as gate oxide becomes thinner.
+•	Random dopants inside the channel cause large Vt shifts.
+**FinFET Era (22 nm → 10 nm)**
+•	FinFETs provide better electrostatic control.
+•	Variability peaks near 22 nm, then gradually reduces.
+•	However:
+  - Variations in fin width, fin height, and line-edge roughness introduce new variability sources.
+**Nanowire/GAA Era (7 nm and beyond)**
+•	Gate surrounds the channel → best electrostatics.
+•	Variability is significantly reduced.
+•	Nanosheets with uniform widths improve drive strength matching and lower Vt sigma.
+
+**3.3 Key Message**
+Variability doesn’t just scale with geometry—**it depends heavily on device architecture.**
+Planar → FinFET → GAA shows a U-shaped improvement where advanced architectures regain control over variability.
+
+---
+## 📌 Parasitics Resistance and Capacitance
+As CMOS transistors scale into the deep-nanometer regime (FinFET → GAAFET → CFET), **parasitic resistance (Rₚₐᵣ)** and **parasitic capacitance (Cₚₐᵣ)** become dominant performance limiters.
+These parasitics degrade transistor ON-current, slow down switching, increase power consumption, and limit further scaling.
+- How parasitic resistance evolves across device architectures
+- How external resistance is broken down and improved
+- How parasitic capacitance components dominate at advanced nodes
+- Techniques used to reduce both resistance and capacitance
+
+### 1. Parasitic Resistance Across Device Architectures
+This image compares **Planar MOSFET, FinFET, Gate-All-Around (GAA)** FET, and **CFET** in terms of parasitic resistance contributions.
+#### 1.1 Planar MOSFET
+- Channel width (Wg) ≈ Contact width (Wc) → **Wc/Wg ≈ 1**
+- Contacts directly land on a large diffusion region.
+- Parasitic resistance (Rₑₓₜ) is **smaller than channel resistance (Rch).**
+- Overall:
+**Rₑₓₜ / Rch < 1**
+
+#### 1.2 FinFET
+- Current flows through a **thin fin**, reducing contact area.
+- Effective contact width becomes:
+**Wc / Wg ≈ 1/3**
+- Narrow fins → higher spreading resistance.
+- Overall parasitic resistance becomes comparable to channel resistance:
+**Rₑₓₜ / Rch ≈ 1**
+- Fin pitch and height variations also worsen Rₚₐᵣ.
+#### 1.3 GAA FET (Nanowire/Nanosheet)
+- Gate surrounds channel → better electrostatics, but:
+  - Contacts land only on small nanosheet ends.
+  - Wc/Wg drops to ~1/6.
+- Result:
+**Rₑₓₜ / Rch ≈ 3**
+- 3D stacking increases resistance unless advanced contacts are used.
+#### 1.4 CFET (Complementary FET, Stacked NMOS/PMOS)
+- Nanosheet PMOS and NMOS stacked vertically.
+- Even smaller contact landing area.
+- Severe parasitic resistance if not optimized:
+**Rₑₓₜ / Rch ~ 3 (or more)**
+**CFET requires extremely low-resistance contacts and high doping to work.**
+
+### 2. External Parasitic Resistance Breakdown
+
+Breaks down **Rₑₓₜ** (external resistance) into individual components throughout the FEOL → MOL → BEOL path.
+#### 2.1 Components of External Resistance
+- **R_FEOL** — Source/Drain epitaxial resistance
+- **R_C** — Metal–semiconductor contact resistance
+- **R_TS** — Silicide/TS (transition stack) resistance
+- **R_MOL** — MOL (Middle Of Line) resistance
+- **R_BEOL** — BEOL via and metal-stack resistance
+- **R_CA / R_CATS** — Contact via resistance
+As the device becomes more 3D (FinFET → GAA), **each component becomes a larger fraction of total resistance.**
+#### 2.2 Rₑₓₜ Evolution (NFET & PFET)
+The pie charts show how Rₑₓₜ contributions change from older to newer nodes:
+**Initial Rₑₓₜ Distribution**
+- NFET:
+  - Rc (contact) is 63%
+  - Repi (epitaxial region) ~31%
+- PFET:
+  - Rc ≈ 45%
+  - Repi ≈ 50%
+**Optimized Transistors**
+After engineering:
+- Contact resistance (Rc) significantly drops.
+- Epitaxial and MOL resistances dominate.
+This indicates that **contact engineering has been the biggest breakthrough** in reducing parasitic resistance.
+#### 2.3 Improving Contact Resistance
+The image shows:
+**✔ Reduce Schottky Barrier Height (SBH)**
+- Lower energy barrier between metal and semiconductor → easier carrier injection.
+**✔ Increase Doping (Nᵈ)**
+- Higher doping under contacts → thinner depletion region → lower Rc.
+Formula shown:
+ρc ∝ exp(2φb / √Nₐ)
+Lower φb + higher Nₐ → **dramatic Rc reduction.**
+**✔ Use optimized metal stacks**
+•	TiN / W / Co / NiSi
+•	Tuned to minimize tunneling resistance.
+
+### 3. Parasitic Capacitance
+#### 3.1 Ceff Breakdown (22nm → 7nm)
+The stacked bar chart shows how effective capacitance (Ceff) components evolve:
+| Node |	Intrinsic Cg | Overlap & Fringing COF |	Contact–Poly Cap CPC-CA |
+|------|---------------|------------------------|-------------------------|
+| 22 nm | 56% |	25% |	19% |
+| 14 nm |	38% |	39% |	23% |
+| 10 nm |	25% |	40% |	35% |
+| 7 nm |	15% |	40% |	45% |
+
+**Key Insight:**
+At 7 nm and below, **parasitic capacitance dominates:**
+- **Contact-to-gate capacitance (CPC-CA) becomes largest.**
+- Intrinsic gate capacitance (Cg) shrinks due to thinner and shorter channels.
+#### 3.2 Spacer Engineering (SiN → SiBCN → Air Spacer)
+**SiN Spacer** → **SiBCN Low-k**
+•	Replacing SiN with SiBCN reduces Ceff by **8%.**
+•	Corresponding delay improvement seen in ring oscillators.
+**Air Spacer Technology**
+•	Air has k ≈ 1 (lowest possible dielectric constant).
+•	Air spacers reduce Ceff by **15%.**
+•	Results in lower delay and better switching performance.
+Cross-section TEM images show how air pockets are implemented around the fin to reduce fringing capacitance.
+
+### 4. Summary: Why Parasitics Matter
+#### Impact of Parasitic Resistance
+- Limits ON-current (Ion)
+- Degrades switching speed
+- Reduces energy efficiency
+- More severe in FinFET/GAA due to small contact area
+#### Impact of Parasitic Capacitance
+- Slows signal propagation
+- Increases dynamic power (P ∝ C V² f)
+- Dominates total capacitance at 7 nm and below
+**Techniques Used to Minimize Parasitics**
+✔ Contact engineering (low SBH, high doping)
+✔ Metal stack optimization
+✔ SDB/COAG layout improvements
+✔ Low-k spacers (SiBCN)
+✔ Air spacers
+✔ Backside PDN to reduce routing parasitics
+✔ Larger epitaxial volumes for lower Repi
+
+---
+## Device Scaling and Electrical Characteristics
+Modern CMOS technology is rapidly approaching fundamental scaling limits—especially as gate lengths shrink below 5 nm. To continue improving transistor density, performance, and energy efficiency, researchers are exploring **layered 2D materials** such as MoS₂, WS₂, and WSe₂. These materials offer atomic-scale thickness, superior electrostatic control, and reduced short-channel effects, making them promising candidates for future transistor nodes.
+
+### 1. Device Scaling Using Layered Materials (2D Materials)
+2D materials like **MoS₂, MoSe₂, WS₂, and WSe₂** consist of layers held together by weak van der Waals bonds. These layers can be exfoliated down to **a single atomic sheet** (~0.65 nm), enabling extreme physical scaling.
+#### Key Advantages Relative to Silicon
+- **Uniform Atomic Thickness**
+  - MoS₂ monolayer thickness ≈ 0.65 nm
+  - Eliminates thickness-variation problems seen in ultra-thin silicon.
+  - Enables aggressive scaling beyond the limits of FinFET and GAA structures.
+- **Higher Effective Mass (m)**
+  - m* for MoS₂ ≈ 0.55 m₀ vs. silicon ≈ 0.22 m₀
+  - Higher m* → lower direct tunneling probability → reduced leakage.
+- **Larger Bandgap (E₉)**
+o	MoS₂ monolayer ≈ **1.85 eV**, bilayer ≈ **1.5 eV**
+o	Higher E₉ suppresses OFF-state leakage and improves Ion/Ioff ratios.
+**Energy Band Alignment**
+The energy band diagram shows:
+•	Consistent conduction band (Ec) and valence band (Ev) positions across different 2D materials.
+•	Favorable band alignment enabling low-power transistor operation.
+
+
+
