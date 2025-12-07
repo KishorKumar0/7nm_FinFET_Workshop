@@ -767,3 +767,39 @@ Visual Highlights:
 - Comparison of planar vs. trigate device drive current.
 - Subthreshold slope improvements across generations.
 - SEM/TEM images of GAAFET nanosheets and future CFET/2D FET structures.
+
+---
+
+## 📌 Standard Cell Area Scaling and Variability
+Modern CMOS technology scaling is not just about shrinking transistor dimensions—it is about **reducing standard-cell area**, **improving routing efficiency**, and **managing device variability** across shrinking nodes. 
+1.	**Standard Cell Area Scaling using Fin-Depopulation**
+2.	**Scaling through Layout Innovations: SDB, COAG, and Back-Side PDN**
+3.	**Variability Evolution from Planar → FinFET → GAA**
+
+________________________________________
+### 1. Standard Cell Area Scaling: Fin Depopulation
+ 
+ 
+
+The diagrams compare standard-cell (SC) dimensions for Samsung’s 10 nm, 8 nm, 7 nm, and 5 nm nodes. Each SC is built from a number of fins (vertical active device structures). As nodes shrink, the number of fins per transistor decreases.
+#### Why Fin Depopulation is used
+- Standard cell height = track height = number of horizontal routing tracks.
+- Transistor drive strength comes from number of fins.
+- To shrink area, foundries reduce fins while using:
+  - Faster materials
+  - Better strain engineering
+  - Higher-k dielectrics
+  - Lower Vdd
+  - Improved transistor design
+#### How the scaling works
+| Node | CPP (Contacted Poly Pitch) | Fins | Standard-Cell Height |
+|------|----------------------------|------|----------------------|
+|10 nm |	68 nm |	10 fins |	420 nm |
+|8 nm | 64 nm |	9 fins |	378 nm |
+|7 nm |	54 nm |	9 fins |	243 nm |
+|5 nm |	54 nm |	6 fins |	216 nm |
+#### Key Insight
+As the technology node shrinks:
+- **CPP decreases** → cell becomes narrower
+- **Fin count decreases** → cell becomes shorter
+- Both lead to **significant area reduction**
