@@ -703,3 +703,67 @@ A comparison plot shows how FinFETs achieve a steeper subthreshold slope and low
 These characteristics are why FinFETs became the industry standard from 22nm down to 5nm, and why GAA devices will drive technology below 3nm.
 
 ---
+
+## 📌 CMOS Technology Inflection Points
+CMOS technology has evolved through several major inflection points, each driven by the need for better performance, reduced power consumption, and continued device scaling. As device dimensions shrank into the deep-nanometer regime, traditional planar MOSFETs faced physical limitations, prompting the adoption of new materials, advanced device structures, and innovative process technologies.
+The images below summarize these critical turning points in CMOS technology scaling.
+
+### 🔹 1. Inflection Points from 1 µm to 32 nm: Materials & Process Innovations
+The major innovations that enabled CMOS scaling during the **Dennard Scaling Era:**
+<img src="CMOS_FinFET_Devices_and_Innovations/Inflection_Points.png" width="500" /> <img src="CMOS_FinFET_Devices_and_Innovations/Inflection_Points1.png" width="500" />
+
+#### ~1 µm Node – “End of Scaling”
+- Traditional MOSFETs reached limitations in voltage and size.
+- Power density became a challenge.
+#### 180 nm – Voltage Scaling Begins
+- Supply voltages reduced for lower power.
+- Improved gate dielectrics enabled better control.
+#### 130 nm – Copper BEOL
+- Replacement of aluminum with copper interconnects.
+- Reduced resistance → faster circuits.
+#### 90 nm – Strained Silicon
+- Introduced uniaxial strained Si NMOS.
+- Increased carrier mobility for higher speed.
+#### 65 nm – SiGe + CVD/ULK
+- Embedded SiGe source/drain for PMOS mobility boost.
+- Introduction of ultra-low-k dielectrics to reduce parasitic capacitance.
+#### 45 nm – High-k Metal Gate (HKMG)
+- A major inflection point:
+  - High-k materials replaced SiO₂ to reduce gate leakage.
+  - Metal gate reduced threshold variability and improved reliability.
+#### 32 nm – Raised S/D + Optimized HKMG
+- Further leakage reduction.
+- Better short-channel control.
+### 🔹 2. Inflection Points from 22 nm to Sub-1 nm: New Device Architectures
+Transition from planar devices to multi-gate and eventually gate-all-around (GAA) structures.
+<img src="CMOS_FinFET_Devices_and_Innovations/Inflection_Points3.png" width="500" /> <img src="CMOS_FinFET_Devices_and_Innovations/Inflection_Points4.png" width="500" />
+
+#### 22 nm – FinFET Adoption
+- First mass-production node using FinFETs.
+- Provided improved electrostatic control and reduced leakage.
+- Enabled high-density and low-leakage standard cells.
+#### 14 nm – SADP/SDB Patterning
+- Self-aligned double patterning used to overcome lithography limits.
+- Continued improvement in cell density and transistor speed.
+#### 10 nm – Advanced Multipatterning
+- Techniques like COAG, SA-SDB, bi-directional LELELE, and SAQP.
+- Enabled further pitch scaling despite lithography limitations.
+#### 7 nm – EUV Introduction
+- Extreme Ultraviolet Lithography partially replaces multipatterning.
+- Simplifies manufacturing and improves pattern fidelity.
+#### 5 nm – High-Mobility Channels
+- SiGe and other materials introduced for PMOS performance.
+- Fin geometry optimized for maximum drive.
+#### 3 nm / 2 nm / 1.4 nm – Gate-All-Around (GAAFET)
+- Transition from FinFET to stacked nanosheet/nanowire GAA.
+- Provides full gate control around the channel → best short-channel behavior.
+#### Sub-1 nm – Beyond CMOS Era
+- Concepts such as:
+  - CFET (Complementary FET) → stacking N and P devices vertically
+  - 2D FETs using materials like MoS₂
+  - New high-k materials like HfOₓ and TiN
+#### These technologies push scaling beyond the physical limits of silicon.
+Visual Highlights:
+- Comparison of planar vs. trigate device drive current.
+- Subthreshold slope improvements across generations.
+- SEM/TEM images of GAAFET nanosheets and future CFET/2D FET structures.
