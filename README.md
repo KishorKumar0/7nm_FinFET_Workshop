@@ -645,9 +645,8 @@ As transistor dimensions scaled down into the nanometer regime, traditional plan
 The images below illustrate this evolution, explain why FinFETs are necessary, and show their impact on circuit performance.
 
 ### 🔹 1. Transistor Evolution: From Planar to FinFET to Gate-All-Around
-The first image highlights the progression of transistor architectures:
 
-<img src="CMOS:FinFET/Transistor_Evolution.jpg" width="500" />
+<img src="CMOS_FinFET_Devices_and_Innovations/Transistor_Evolution.jpg" width="500" /> <img src="CMOS_FinFET_Devices_and_Innovations/Transistor_Evolution_2.jpg" width="500" />
 
 #### Planar MOSFET
 - Gate sits on top of a flat silicon channel.
@@ -670,7 +669,9 @@ This architectural evolution allows more drive current per device footprint, ena
 
 
 ### 🔹 2. Why FinFETs? Improved Gate Control & Reduced Leakage
-The second image explains the motivation for FinFET and GAA technologies.
+
+<img src="CMOS_FinFET_Devices_and_Innovations/Why_finFETs.png" width="500" />
+
 #### Planar MOSFET Issues
 - Weak gate control over the channel.
 - Significant **sub-channel leakage**, especially at short channel lengths.
@@ -686,7 +687,8 @@ The second image explains the motivation for FinFET and GAA technologies.
 A comparison plot shows how FinFETs achieve a steeper subthreshold slope and lower leakage versus planar devices.
 
 ### 🔹 3. Impact on Circuit Performance
-The third image demonstrates how FinFETs improve circuit-level characteristics.
+<img src="CMOS_FinFET_Devices_and_Innovations/Impact_On_Circuit_Performance.png" width="500" />
+
 #### Lower Off-Current
 - FinFETs reduce leakage current dramatically.
 - Lower static power consumption.
